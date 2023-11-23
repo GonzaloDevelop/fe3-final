@@ -1,10 +1,10 @@
 import React, { createContext, useReducer, useEffect } from 'react'
-import { favsLogicReducer } from '../reducers/favsLogicReducer'
+import { favsReducer } from '../reducers/favsReducer'
 
 export const FavsLogicContext = createContext()
 
 const FavsLogicContextProvider = ({ children }) => {
-  const [favorites, dispatch] = useReducer(favsLogicReducer, [])
+  const [favorites, dispatch] = useReducer(favsReducer, [])
 
   const loadFavorites = () => {
     const favs = JSON.parse(localStorage.getItem('favorites')) || []

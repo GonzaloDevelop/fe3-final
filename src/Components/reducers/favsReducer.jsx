@@ -1,4 +1,4 @@
-export const favsLogicReducer = (state, action) => {
+export const favsReducer = (state, action) => {
     switch (action.type) {
       case 'LOAD_FAVORITES':
         return [...action.payload]

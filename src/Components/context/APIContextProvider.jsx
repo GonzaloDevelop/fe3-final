@@ -1,28 +1,36 @@
-import { createContext, useState, useEffect } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 import axios from 'axios'
 
 export const APIContext = createContext()
 
+const apiReducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_SUCCESS':
+      return { ...state, users: action.payload, isLoading: false, error: null }
+    case 'FETCH_ERROR':
+      return { ...state, users: [], isLoading: false, error: action.payload }
+    case 'LOADING':
+      return { ...state, isLoading: true }
+    default:
+      return state
+  }
+}
+
 const APIContextProvider = ({ children }) => {
-  const [users, setUsers] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const [state, dispatch] = useReducer(apiReducer, {
+    users: [],
+    isLoading: true,
+    error: null,
+  })
 
   useEffect(() => {
-    setIsLoading(true)
+    dispatch({ type: 'LOADING' })
     axios.get('https://jsonplaceholder.typicode.com/users')
       .then(response => {
-        setUsers(response.data)
-        setError(false)
+        dispatch({ type: 'FETCH_SUCCESS', payload: response.data })
       })
-      .catch(() => {
-        setError(true)
-      })
-      .finally(() => {
-        
-        setTimeout(() => {
-          setIsLoading(false)
-        }, 1000)
+      .catch(error => {
+        dispatch({ type: 'FETCH_ERROR', payload: error })
       })
   }, [])
 
@@ -37,7 +45,7 @@ const APIContextProvider = ({ children }) => {
   }
 
   return (
-    <APIContext.Provider value={{ users, isLoading, error, fetchUserById }}>
+    <APIContext.Provider value={{ ...state, fetchUserById }}>
       {children}
     </APIContext.Provider>
   )

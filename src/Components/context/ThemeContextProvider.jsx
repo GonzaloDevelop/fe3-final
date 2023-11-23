@@ -1,15 +1,7 @@
-import { createContext, useReducer, useEffect } from 'react'
+import React, { createContext, useReducer, useEffect } from 'react'
+import { themeReducer } from '../reducers/themeReducer'
 
 export const ThemeContext = createContext()
-
-const themeReducer = (state, action) => {
-  switch(action.type) {
-    case 'SET_THEME':
-      return {...state, theme: action.payload}
-    default:
-      return state
-  }
-}
 
 const ThemeContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(themeReducer, { theme: 'light' })
@@ -22,12 +14,11 @@ const ThemeContextProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('theme', state.theme);
-    document.body.className = state.theme;
+    document.body.className = state.theme
   }, [state.theme])
 
   const toggleTheme = () => {
-    dispatch({ type: 'SET_THEME', payload: state.theme === 'light' ? 'dark' : 'light' });
+    dispatch({ type: 'SET_THEME', payload: state.theme === 'light' ? 'dark' : 'light' })
   }
 
   return (

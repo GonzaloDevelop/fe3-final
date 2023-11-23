@@ -1,25 +1,13 @@
-import React, { createContext, useEffect, useReducer } from 'react'
+import React, { createContext, useReducer, useEffect } from 'react'
 import axios from 'axios'
+import { apiReducer } from '../reducers/apiReducer'
 
 export const APIContext = createContext()
-
-const apiReducer = (state, action) => {
-  switch (action.type) {
-    case 'FETCH_SUCCESS':
-      return { ...state, users: action.payload, isLoading: false, error: null }
-    case 'FETCH_ERROR':
-      return { ...state, users: [], isLoading: false, error: action.payload }
-    case 'LOADING':
-      return { ...state, isLoading: true }
-    default:
-      return state
-  }
-}
 
 const APIContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(apiReducer, {
     users: [],
-    isLoading: true,
+    isLoading: false,
     error: null,
   })
 

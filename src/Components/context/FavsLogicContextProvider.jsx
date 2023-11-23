@@ -1,30 +1,15 @@
-import React, { createContext, useEffect, useReducer } from 'react'
+import React, { createContext, useReducer, useEffect } from 'react'
+import { favsLogicReducer } from '../reducers/favsLogicReducer'
 
 export const FavsLogicContext = createContext()
 
-const favsReducer = (state, action) => {
-  switch (action.type) {
-    case 'LOAD_FAVORITES':
-      return [...action.payload]
-    case 'CLEAR_FAVORITES':
-      return []
-    default:
-      return state
-  }
-}
-
 const FavsLogicContextProvider = ({ children }) => {
-  const [favorites, dispatch] = useReducer(favsReducer, [])
+  const [favorites, dispatch] = useReducer(favsLogicReducer, [])
 
   const loadFavorites = () => {
     const favs = JSON.parse(localStorage.getItem('favorites')) || []
     favs.sort((a, b) => a.id - b.id)
     dispatch({ type: 'LOAD_FAVORITES', payload: favs })
-  }
-
-  const clearFavorites = () => {
-    localStorage.removeItem('favorites')
-    dispatch({ type: 'CLEAR_FAVORITES' })
   }
 
   useEffect(() => {
@@ -41,7 +26,7 @@ const FavsLogicContextProvider = ({ children }) => {
   }, [])
 
   return (
-    <FavsLogicContext.Provider value={{ favorites, clearFavorites }}>
+    <FavsLogicContext.Provider value={{ favorites, clearFavorites: () => dispatch({ type: 'CLEAR_FAVORITES' }) }}>
       {children}
     </FavsLogicContext.Provider>
   )

@@ -26,13 +26,13 @@ const Navbar = () => {
     <nav>
       <ul className='hidden lg:flex mx-auto max-w-4xl items-center justify-between gap-x-4 lg:px-8 px-4 sm:gap-0'>
         <li className='list-none cursor-pointer'>
-          <Link to='/' className='dark:text-white text-2xl dark:hover:text-chetwode-blue-300 hover:text-chetwode-blue-600'>Home</Link>
+          <Link to='/' className='dark:text-white text-2xl dark:hover:text-chetwode-blue-300 hover:text-gray-500'>Home</Link>
         </li>
         <li className='list-none cursor-pointer'>
-          <Link to='/contact' className='dark:text-white text-2xl dark:hover:text-chetwode-blue-300 hover:text-chetwode-blue-600'>Contacto</Link>
+          <Link to='/contact' className='dark:text-white text-2xl dark:hover:text-chetwode-blue-300 hover:text-gray-500'>Contacto</Link>
         </li>
         <li className='list-none cursor-pointer'>
-          <Link to='/favs' className='dark:text-white text-2xl dark:hover:text-chetwode-blue-300 hover:text-chetwode-blue-600'>Favoritos</Link>
+          <Link to='/favs' className='dark:text-white text-2xl dark:hover:text-chetwode-blue-300 hover:text-gray-500'>Favoritos</Link>
         </li>
         <li className='list-none cursor-pointer text-2xl' onClick={toggleTheme}>
           {theme === 'light' ? '🌙' : '☀️'}

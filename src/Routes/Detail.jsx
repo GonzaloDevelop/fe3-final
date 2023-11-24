@@ -57,16 +57,16 @@ const Detail = () => {
 
   return (
     <article className='flex flex-col items-center justify-center min-h-screen'>
-      <div className="relative flex flex-col items-center justify-center h-[60vh] lg:h-[40vh] gap-4 lg:w-[30%] m-auto bg-gray-100 border border-green-400 rounded-lg p-6 shadow-md">
+      <div className="relative flex flex-col items-center justify-center h-[60vh] lg:h-[40vh] gap-4 lg:w-[30%] m-auto dark:text-white bg-gray-100 border border-red-500 dark:border-green-600 dark:bg-purple-900 dark:hover:bg-purple-700 rounded-lg p-6 shadow-md">
         <div className='absolute -top-16 w-full flex justify-center'>
-          <img src={DoctorIcon} alt="Doctor" className="w-40 h-40 rounded-full"/>
+          <img src={DoctorIcon} alt="Doctor" className="w-40 h-40 rounded-full border-2 border-red-500 dark:border-green-600"/>
         </div>
         {user && (
           <>
             <p className="text-lg font-semibold">Nombre: {user.name}</p>
             <p className="text-lg font-semibold">Email: {user.email}</p>
             <p className="text-lg font-semibold">Teléfono: {user.phone}</p>
-            <p className="text-lg font-semibold pb-4">Web: <a href={`http://${user.website}`} className="text-blue-600 hover:text-blue-800 visited:text-purple-600">{user.website}</a></p>
+            <p className="text-lg font-semibold pb-4">Web: <a href={`http://${user.website}`} className="text-blue-600 dark:text-blue-200 hover:text-blue-800 visited:text-purple-600 dark:visited:text-purple-300">{user.website}</a></p>
           </>
         )}
         <button onClick={handleBack} className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded">Volver</button>

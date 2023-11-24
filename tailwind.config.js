@@ -121,6 +121,7 @@ export default {
   '900': '#3b2986',
   '950': '#25184e',
 },
+'custom-pink': '#FFA2A2',
       },
     },
   },

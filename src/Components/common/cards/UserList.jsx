@@ -36,7 +36,7 @@ const UserList = () => {
         ) : (
           users.map(user => (
             <Grid item xs={12} md={6} lg={4} key={user.id}>
-              <Card user={user} onClick={() => handleCardClick(user.id)} />
+              <Card user={user} onClick={() => handleCardClick(user.id)}/>
             </Grid>
           ))
         )}

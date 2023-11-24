@@ -16,11 +16,13 @@ const Favs = () => {
   return (
       <article className='flex flex-col items-center justify-center m-auto pt-20 pb-20'>
         <Grid container alignItems='center' justifyContent='space-evenly' spacing={8} sx={{ width: '70%' }}>
-          {favorites.map(user => (
-            <Grid item xs={12} md={6} lg={4} key={user.id}>
-              <Card user={user} onClick={() => handleCardClick(user.id)} />
-            </Grid>
-          ))}
+          {favorites.map(user => {
+            return (
+              <Grid item xs={12} md={6} lg={4} key={user.id}>
+                <Card user={user} onClick={() => handleCardClick(user.id)} />
+              </Grid>
+          )
+        })}
         </Grid>
         {favorites.length > 0 && (
           <Button 

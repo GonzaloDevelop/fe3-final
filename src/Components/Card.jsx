@@ -4,7 +4,7 @@ import DoctorIcon from '../../public/images/doctor.jpg'
 import HeartIcon from '../Components/common/cards/HeartIcon'
 
 const Card = ({ user, onClick }) => {
-    const [isFavorite, toggleFavorite] = useFavorite(user.id)
+    const [isFavorite, toggleFavorite] = useFavorite(user)
 
     const dentistDetails = useMemo(() => [
         { label: 'Nombre', value: user.name },

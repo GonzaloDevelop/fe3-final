@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import PageTitle from './Components/PageTitle'
 import Contact from './Routes/Contact'
 import Home from './Routes/Home'
@@ -10,7 +10,6 @@ import GlobalContextProvider from './Components/context/GlobalContextProvider'
 import Footer from './Components/Footer'
 function App() {
   return (
-    <BrowserRouter>
      <GlobalContextProvider>
         <PageTitle />
           <div className="flex flex-col min-h-screen">
@@ -27,7 +26,6 @@ function App() {
             <Footer />
           </div>
         </GlobalContextProvider>
-    </BrowserRouter>
   )
 }
 

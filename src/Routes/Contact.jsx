@@ -40,7 +40,7 @@ const ContactForm = () => {
                 
                 <Form>
                     <main>
-                    <section className='flex flex-col items-center justify-center lg:h-[80vh] p-4 gap-4 lg:w-[40%] m-auto'>
+                    <section className='flex flex-col items-center justify-center lg:h-[100%] p-4 gap-4 lg:w-[40%] m-auto'>
 
                         <h1 className="text-4xl font-bold mb-4 dark:text-white max-w-[90vw]">¿Querés saber más?</h1>
                         <p className="mb-8 dark:text-white text-lg max-w-[80vw] text-center mx-auto">Envianos tus preguntas y nos pondremos en contacto con vos</p>

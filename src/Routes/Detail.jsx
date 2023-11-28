@@ -57,7 +57,7 @@ const Detail = () => {
 
   return (
     <article className='flex flex-col items-center justify-center min-h-screen'>
-      <div className="relative flex flex-col items-center justify-center h-[60vh] lg:h-[40vh] gap-4 lg:w-[30%] m-auto dark:text-white bg-gray-100 border border-red-500 dark:border-green-600 dark:bg-purple-900 dark:hover:bg-purple-700 rounded-lg p-6 shadow-md">
+      <div className="relative flex flex-col items-center justify-center h-[60vh] lg:h-[70vh] gap-4 lg:w-[30%] m-auto dark:text-white bg-gray-100 border border-red-500 dark:border-green-600 dark:bg-purple-900 dark:hover:bg-purple-700 rounded-lg p-6 shadow-md">
         <div className='absolute -top-16 w-full flex justify-center'>
           <img src={DoctorIcon} alt="Doctor" className="w-40 h-40 rounded-full border-2 border-red-500 dark:border-green-600"/>
         </div>
